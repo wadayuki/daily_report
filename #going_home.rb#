@@ -1,0 +1,11 @@
+require 'mail'
+
+mail = Mail.new do
+
+     from 'kino.musicacount@gmail.com'
+     to   'ywada@glodia.jp'
+     subject '’¼«’Ê¬’Æü’Êó'
+     body '’¤ª’»Å’»ö’¤ª’Èè’¤ì’ÍÍ’¤Ç’¤¹’¡¢’¸½’ºß’¤Î’¥¿’¥¹’¥¯’¤ò’¤ª’ÅÁ’¤¨’¤·’¤Þ’¤¹'
+end
+
+#’¤³’¤³’¤«’¤é’²¼’¤Ë’¥á’¡¼’¥ë’Àß’Äê’¤ò’½ñ’¤¯
