@@ -28,22 +28,27 @@ puts(yesterday_work)
 #Dir.mkdir(today_work + '/to',0777)
 line_start = 0
 line_end = 0
-task_list = ()
+task_list = []
 #タスクファイル作成
 
-File.open(yesterday_work + "/today_task.txt","r")do|f|
-line_end = f.count
-	f.each_line do |line|
-	line.chomp!
-		p(line)
-		if(line == "_Today's task_")then
-				line_start = f.lineno + 1
-		end
+File.open(yesterday_work + "/today_task.txt", 'r:utf-8').each do |f|
 
-	end
+		next unless f =~ /_Today's task_/ ..  f =~ /_END_/
+		task_list.push(f)
 end
+#昨日のタスクを取ってくる
+task_list.pop
+task_list.shift
+
+p(task_list)
 
 File.open("./today_task.txt","w+") do|f|
 f.puts("〔昨日からのタスク〕")
+task_list.each do |list|
+f.puts(list)
+end
 f.puts("〔今日のタスク〕")
+f.puts("_END_")
+
+
 end
