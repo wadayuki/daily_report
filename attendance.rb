@@ -23,9 +23,9 @@ puts(yesterday_work)
 #ディレクトリを作成
 
 
-#Dir.mkdir(today_work,0777)
-#Dir.mkdir(today_work + '/from',0777)
-#Dir.mkdir(today_work + '/to',0777)
+Dir.mkdir(today_work,0777)
+Dir.mkdir(today_work + '/from',0777)
+Dir.mkdir(today_work + '/to',0777)
 line_start = 0
 line_end = 0
 task_list = []
@@ -42,13 +42,14 @@ task_list.shift
 
 p(task_list)
 
-File.open("./today_task.txt","w+") do|f|
-f.puts("〔昨日からのタスク〕")
-task_list.each do |list|
-f.puts(list)
-end
-f.puts("〔今日のタスク〕")
-f.puts("_END_")
+File.open( today_work +"/today_task.txt","w+") do|f|
+
+	f.puts("_Yesterday's task_")
+	task_list.each do |list|
+		f.puts(list)
+	end
+	f.puts("_Today's task_")
+	f.puts("_END_")
 
 
 end
