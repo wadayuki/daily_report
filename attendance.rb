@@ -23,18 +23,23 @@ puts(yesterday_work)
 #ディレクトリを作成
 
 
-Dir.mkdir(today_work,0777)
-Dir.mkdir(today_work + '/from',0777)
-Dir.mkdir(today_work + '/to',0777)
-
+#Dir.mkdir(today_work,0777)
+#Dir.mkdir(today_work + '/from',0777)
+#Dir.mkdir(today_work + '/to',0777)
+line_start = 0
+line_end = 0
+task_list = ()
 #タスクファイル作成
+
 File.open(yesterday_work + "/today_task.txt","r")do|f|
+line_end = f.count
 	f.each_line do |line|
 	line.chomp!
-		if(line == "33")then
-				puts(f.lineno)
+		p(line)
+		if(line == "_Today's task_")then
+				line_start = f.lineno + 1
 		end
-		puts(line)
+
 	end
 end
 
