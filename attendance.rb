@@ -30,8 +30,11 @@ Dir.mkdir(today_work + '/to',0777)
 #タスクファイル作成
 File.open(yesterday_work + "/today_task.txt","r")do|f|
 	f.each_line do |line|
-	puts(f.lineno)
-	puts(line)
+	line.chomp!
+		if(line == "33")then
+				puts(f.lineno)
+		end
+		puts(line)
 	end
 end
 
