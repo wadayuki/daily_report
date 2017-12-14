@@ -50,6 +50,5 @@ File.open( today_work +"/today_task.txt","w+") do|f|
 	end
 	f.puts("_Today's task_")
 	f.puts("_END_")
-
-
+	f.puts("_new_word_")
 end
