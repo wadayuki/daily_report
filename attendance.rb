@@ -33,8 +33,8 @@ task_list = []
 
 File.open(yesterday_work + "/today_task.txt", 'r:utf-8').each do |f|
 
-		next unless f =~ /_Today's task_/ ..  f =~ /_END_/
-		task_list.push(f)
+	next unless f =~ /_Today's task_/ ..  f =~ /_END_/
+	task_list.push(f)
 end
 #昨日のタスクを取ってくる
 task_list.pop
@@ -46,7 +46,7 @@ File.open( today_work +"/today_task.txt","w+") do|f|
 
 	f.puts("_Yesterday's task_")
 	task_list.each do |list|
-		f.puts(list)
+	f.puts(list)
 	end
 	f.puts("_Today's task_")
 	f.puts("_END_")
